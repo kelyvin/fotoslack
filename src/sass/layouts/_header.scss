@@ -1,0 +1,30 @@
+.nav-bar {
+    width: 100%;
+    background-color: $foto-red;
+    height: $nav-height;
+    color: white;
+    box-shadow: 0 0 5px $foto-black;
+    font-size: 22px;
+    @include source-sans-pro(200);
+
+    .container {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .brand {
+        max-height: 50px;
+        height: 100%;
+
+        img {
+            padding: 5px 5px 5px 0;
+            height: 40px;
+            vertical-align: middle;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    }
+}

@@ -1,0 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600);
+
+/* Font mixins*/
+
+// Lato - 200, 300, 400, 600
+@mixin source-sans-pro($weight: 400){
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: $weight;
+}

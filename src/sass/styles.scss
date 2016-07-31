@@ -1,0 +1,18 @@
+/* Utils */
+@import 'utils/variables';
+@import 'utils/fonts';
+
+/* Layouts */
+@import 'layouts/header';
+
+/* Pages */
+@import 'pages/photoViewer';
+
+body {
+    margin: 0;
+    @include source-sans-pro();
+}
+
+.container {
+    padding: 20px;
+}

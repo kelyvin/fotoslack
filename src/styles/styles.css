@@ -1,0 +1,39 @@
+/* Utils */
+/* Color Palette */
+/* Fixed Settings */
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600);
+/* Font mixins*/
+/* Layouts */
+.nav-bar {
+  width: 100%;
+  background-color: #FF7F66;
+  height: 50px;
+  color: white;
+  box-shadow: 0 0 5px #3F464C;
+  font-size: 22px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 200; }
+  .nav-bar .container {
+    padding-top: 0;
+    padding-bottom: 0; }
+  .nav-bar .brand {
+    max-height: 50px;
+    height: 100%; }
+    .nav-bar .brand img {
+      padding: 5px 5px 5px 0;
+      height: 40px;
+      vertical-align: middle; }
+    .nav-bar .brand a {
+      text-decoration: none;
+      color: white; }
+
+/* Pages */
+body {
+  margin: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400; }
+
+.container {
+  padding: 20px; }
+
+/*# sourceMappingURL=styles.css.map */

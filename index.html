@@ -1,6 +1,36 @@
+<!DOCTYPE html>
+<html>
+
 <head>
-    <title>Foto Slack</title>
+    <meta charset="UTF-8">
+    <title>Fotoslack</title>
+    <meta name="author" content="Kelvin Nguyen">
+    <meta name="description" content="Photo viewer for Slack">
+    <link rel="stylesheet" type="text/css" href="src/styles/styles.css">
 </head>
+
 <body>
-    <h1>Hello World</h1>
+    <header>
+        <div class="nav-bar">
+            <div class="container">
+                <div class="brand">
+                    <a href="#">
+                        <img src="src/images/slack_logo.png">
+                        <span>FOTOSLACK</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="app-container" class="container">
+    </div>
+    <footer>
+    </footer>
+    <script type="text/javascript" src="src/js/app.js"></script>
+    <script type="text/javascript" src="src/js/configs/api.js"></script>
+    <script type="text/javascript" src="src/js/views/base.js"></script>
+    <script type="text/javascript" src="src/js/views/pages/photoViewer.js"></script>
+    <script type="text/javascript" src="src/js/fotoslack.js"></script>
 </body>
+
+</html>
