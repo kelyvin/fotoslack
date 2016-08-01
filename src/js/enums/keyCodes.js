@@ -11,7 +11,6 @@ var fotoslack = fotoslack || {
     }
 };
 
-// Move keys away from source code when a proper backend has been implemented
 fotoslack.enums.keyCodes = (function() {
     'use strict';
 
