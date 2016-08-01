@@ -9,8 +9,8 @@
   background-color: #FF7F66;
   height: 50px;
   color: white;
-  box-shadow: 0 0 5px #3F464C;
   font-size: 22px;
+  box-shadow: 0 0 5px #3F464C;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 200; }
   .nav-bar .container {
@@ -27,7 +27,28 @@
       text-decoration: none;
       color: white; }
 
+footer {
+  text-align: center;
+  padding-top: 20px; }
+  footer a {
+    color: gray; }
+
+/* Components */
+.loader {
+  text-align: center; }
+
+.thumbnail {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  vertical-align: middle; }
+  .thumbnail img:hover {
+    box-shadow: 0 0 8px #3F464C; }
+
 /* Pages */
+.photo-viewer {
+  text-align: center; }
+
 body {
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;

@@ -1,9 +1,15 @@
 /* Utils */
 @import 'utils/variables';
 @import 'utils/fonts';
+@import 'utils/mixins';
 
 /* Layouts */
 @import 'layouts/header';
+@import 'layouts/footer';
+
+/* Components */
+@import 'components/loader';
+@import 'components/photoThumbnail';
 
 /* Pages */
 @import 'pages/photoViewer';

@@ -38,10 +38,15 @@ fotoslack.views.base = (function() {
         this.el.addEventListener('click', callback);
     };
 
+    // get parent node of this element,
+    // delete the child node (i.e. this element) by calling .removeChild
     BaseView.prototype.destroy = function () {
-        // get parent node of this element,
-        // delete the child node (i.e. this element) by calling .removeChild
-        // remove event listeners .removeEventListener
+        var parentNode = this.el.parentNode;
+
+        if (parentNode) {
+            parentNode.removeChild(this.el);
+        }
+
     };
 
     return BaseView;

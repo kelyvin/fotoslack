@@ -3,8 +3,8 @@
     background-color: $foto-red;
     height: $nav-height;
     color: white;
-    box-shadow: 0 0 5px $foto-black;
     font-size: 22px;
+    @include shadow();
     @include source-sans-pro(200);
 
     .container {
