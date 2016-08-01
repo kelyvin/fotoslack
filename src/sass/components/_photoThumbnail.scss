@@ -5,6 +5,8 @@
     vertical-align: middle;
 
     img {
+        @include shadow(3px);
+
         &:hover {
             @include shadow(8px);
         }

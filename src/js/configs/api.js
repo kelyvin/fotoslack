@@ -3,7 +3,9 @@ var fotoslack = fotoslack || {
     models: {},
     utils: {},
     views: {
-        components: {},
+        components: {
+            photo: {}
+        },
         pages: {}
     }
 };
@@ -24,9 +26,9 @@ fotoslack.configs.api = (function() {
             extras: [
                 'description',
                 'owner_name',
-                'url_q',   // large square
+                'url_q',   // small square
                 'url_c',   // medium
-                'url_o'    // original image
+                'url_k'    // large
             ]
 
         }

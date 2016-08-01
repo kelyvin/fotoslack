@@ -4,7 +4,9 @@ var fotoslack = fotoslack || {
     models: {},
     utils: {},
     views: {
-        components: {},
+        components: {
+            photo: {}
+        },
         pages: {}
     }
 };

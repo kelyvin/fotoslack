@@ -3,7 +3,9 @@ var fotoslack = fotoslack || {
     models: {},
     utils: {},
     views: {
-        components: {},
+        components: {
+            photo: {}
+        },
         pages: {}
     }
 };
@@ -12,20 +14,36 @@ fotoslack.views.pages.photoViewer = (function() {
     'use strict';
 
     var PhotoViewer = function(options) {
-        fotoslack.views.base.call(this, options);
+        var lightbox = null;
 
+        fotoslack.views.base.call(this, options);
         this.photoCollection = [];
+
+        this.renderLightbox = function (index) {
+            if (lightbox) {
+                lightbox.destroy();
+                lightbox = null;
+            }
+
+            lightbox = new fotoslack.views.components.lightbox({
+                photoCollection: this.photoCollection,
+                index: index
+            });
+
+            lightbox.render();
+            this.el.appendChild(lightbox.el);
+        };
 
         this.renderPhotos = function () {
             for (var i = 0; i < this.photoCollection.length; i++) {
                 var flickrPhoto = this.photoCollection[i],
-                    photoThumbnailView = new fotoslack.views.components.photoThumbnail({
+                    photoThumbnailView = new fotoslack.views.components.photo.thumbnail({
                         model: flickrPhoto
                     });
 
-                // Add click event to open lightbox
-                // photoThumbnailView.addClickEvent()
                 photoThumbnailView.render();
+                photoThumbnailView.addClickEvent(this.renderLightbox.bind(this, i));
+
                 this.el.appendChild(photoThumbnailView.el);
             }
         };
@@ -36,7 +54,7 @@ fotoslack.views.pages.photoViewer = (function() {
             apiFailMessageEl.appendChild(document.createTextNode('The Flickr API seems to have errored, cannot currently retrieve the gallery. Please refresh to try again.'));
 
             this.el.appendChild(apiFailMessageEl);
-        }
+        };
 
         this.renderPhotoGallery = function () {
             var galleryId = fotoslack.configs.default.flickrGalleryId,

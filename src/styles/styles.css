@@ -42,8 +42,10 @@ footer {
   display: inline-block;
   padding: 10px;
   vertical-align: middle; }
-  .thumbnail img:hover {
-    box-shadow: 0 0 8px #3F464C; }
+  .thumbnail img {
+    box-shadow: 0 0 3px #3F464C; }
+    .thumbnail img:hover {
+      box-shadow: 0 0 8px #3F464C; }
 
 /* Pages */
 .photo-viewer {

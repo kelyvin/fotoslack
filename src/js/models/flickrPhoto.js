@@ -3,7 +3,9 @@ var fotoslack = fotoslack || {
     models: {},
     utils: {},
     views: {
-        components: {},
+        components: {
+            photo: {}
+        },
         pages: {}
     }
 };
@@ -18,6 +20,7 @@ fotoslack.models.flickrPhoto = (function() {
             id: '',
             description: '',
             ownername: '',
+            title: '',
             images: {
                 square: {
                     url: '',
@@ -29,7 +32,7 @@ fotoslack.models.flickrPhoto = (function() {
                     height: '',
                     width: ''
                 },
-                original: {
+                large: {
                     url: '',
                     height: '',
                     width: ''
@@ -49,6 +52,7 @@ fotoslack.models.flickrPhoto = (function() {
                 id: photo.id,
                 description: photo.description._content,
                 ownername: photo.ownername,
+                title: photo.title,
                 images: {
                     square: {
                         url: photo.url_q,
@@ -60,10 +64,10 @@ fotoslack.models.flickrPhoto = (function() {
                         height: photo.height_c,
                         width: photo.width_c
                     },
-                    original: {
-                        url: photo.url_o,
-                        height: photo.height_o,
-                        width: photo.height_o
+                    large: {
+                        url: photo.url_k,
+                        height: photo.height_k,
+                        width: photo.height_k
                     }
                 }
             };

@@ -3,30 +3,33 @@ var fotoslack = fotoslack || {
     models: {},
     utils: {},
     views: {
-        components: {},
+        components: {
+            photo: {}
+        },
         pages: {}
     }
 };
 
-fotoslack.views.components.photoThumbnail = (function() {
+fotoslack.views.components.photo.thumbnail = (function() {
     'use strict';
 
     var PhotoThumbnail = function(options) {
         fotoslack.views.base.call(this, options);
-
         this.model = this.options.model || new fotoslack.models.flickrPhoto();
 
         this.renderThumbnail = function () {
             var thumbnailEl = document.createElement('img'),
-                images = this.model.get('images');
+                images = this.model.get('images'),
+                squareUrl = images.square.url || '',
+                largeImageUrl = images.large.url || images.medium.url || squareUrl;
 
             // Prevent default anchor tag function
             this.addClickEvent(function (event) {
                 event.preventDefault();
             });
 
-            thumbnailEl.setAttribute('src', images.square.url);
-            this.el.setAttribute('href', images.original.url);
+            thumbnailEl.setAttribute('src', squareUrl);
+            this.el.setAttribute('href', largeImageUrl);
             this.el.appendChild(thumbnailEl);
         };
     };
