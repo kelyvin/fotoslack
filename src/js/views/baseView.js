@@ -44,7 +44,7 @@ fotoslack.views.base = (function() {
     // Executes when render is complete
     BaseView.prototype.postRender = function () {
         return;
-    }
+    };
 
     // get parent node of this element,
     // delete the child node (i.e. this element) by calling .removeChild

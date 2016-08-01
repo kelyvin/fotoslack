@@ -36,6 +36,13 @@ fotoslack.views.components.lightbox = (function() {
             }
         };
 
+        this.renderPhoto = function (index) {
+            if (photoPreviewView) {
+                var model = this.photoCollection[index];
+                photoPreviewView.renderPhoto(model);
+            }
+        };
+
         this.renderCloseButton = function () {
             var buttonContainer = document.createElement('div'),
                 closeButton = new fotoslack.views.components.button({
@@ -81,13 +88,6 @@ fotoslack.views.components.lightbox = (function() {
                 });
 
                 lightBoxContainer.appendChild(photoPreviewView.render().el);
-            }
-        };
-
-        this.renderPhoto = function (index) {
-            if (photoPreviewView) {
-                var model = this.photoCollection[index];
-                photoPreviewView.renderPhoto(model);
             }
         };
 

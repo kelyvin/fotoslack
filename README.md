@@ -18,10 +18,10 @@ This Fotoslack web app is written in pure native javascript that is supported on
 5. Modular SASS stylesheets to create easy and readable associations betwen styles and components.
 
 ## API
-This project integates with the Flickr Api. In particular, we are creating the photo viewer using the [Get Gallery Photos](https://www.flickr.com/services/api/flickr.galleries.getPhotos.html) endpoint.
+This project integates with the Flickr Api. In particular, I am creating the photo viewer using the [Get Gallery Photos](https://www.flickr.com/services/api/flickr.galleries.getPhotos.html) endpoint.
 
 ## Sass
-For this project, I am using SASS to generate the styles.css file. To initiate and run the SASS preprocessor, run the following command:
+**For development only**. I am using SASS to generate the styles.css file. To initiate and run the SASS preprocessor, run the following command:
 
 ```
 sass src/sass/styles.scss src/styles/styles.css
