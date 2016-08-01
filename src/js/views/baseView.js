@@ -1,5 +1,6 @@
 var fotoslack = fotoslack || {
     configs: {},
+    enums: {},
     models: {},
     utils: {},
     views: {
@@ -32,13 +33,18 @@ fotoslack.views.base = (function() {
     BaseView.prototype.render = function() {
         this.el = this.template();
         this.constructView();
-
+        this.postRender();
         return this;
     };
 
     BaseView.prototype.addClickEvent = function(callback) {
         this.el.addEventListener('click', callback);
     };
+
+    // Executes when render is complete
+    BaseView.prototype.postRender = function () {
+        return;
+    }
 
     // get parent node of this element,
     // delete the child node (i.e. this element) by calling .removeChild

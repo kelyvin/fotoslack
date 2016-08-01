@@ -1,5 +1,6 @@
 var fotoslack = fotoslack || {
     configs: {},
+    enums: {},
     models: {},
     utils: {},
     views: {

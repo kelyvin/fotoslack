@@ -6,9 +6,11 @@
 
     img {
         @include shadow(3px);
+        opacity: .8;
 
         &:hover {
             @include shadow(8px);
+            opacity: 1;
         }
     }
 }

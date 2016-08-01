@@ -8,9 +8,11 @@
 @import 'layouts/footer';
 
 /* Components */
+@import 'components/button';
 @import 'components/lightbox';
 @import 'components/loader';
-@import 'components/photoThumbnail';
+@import 'components/photo/thumbnail';
+@import 'components/photo/preview';
 
 /* Pages */
 @import 'pages/photoViewer';
@@ -18,8 +20,37 @@
 body {
     margin: 0;
     @include source-sans-pro();
+
+    h1 {
+        @include source-sans-pro(200);
+    }
+
+    h5 {
+        margin-top: 0;
+        @include source-sans-pro(300);
+    }
 }
 
 .container {
     padding: 20px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
 }

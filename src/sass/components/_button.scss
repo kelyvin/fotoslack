@@ -1,0 +1,17 @@
+.btn {
+    font-size: 14px;
+    padding: 10px 14px;
+    border: 1px solid $foto-black;
+    @include button($foto-white, $foto-black);
+
+    &.btn-call-to-action {
+        padding: 10px 25px;
+        @include button($foto-ice, $foto-white);
+    }
+}
+
+.close-button {
+    @include icon-button();
+    padding: 5px 10px;
+    font-size: 28px;
+}

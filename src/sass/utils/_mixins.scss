@@ -6,6 +6,26 @@
     }
 }
 
+@mixin button($background, $color) {
+    @include source-sans-pro(300);
+    background: rgba($background, .8);
+    color: $color;
+    cursor: pointer;
+
+    &:hover {
+        background: rgba($background, 1);
+    }
+}
+
+@mixin icon-button($color: $foto-white) {
+    @include source-sans-pro(600);
+    border: none;
+    background: none;
+    color: $color;
+    cursor: pointer;
+    padding: 0;
+}
+
 @mixin shadow($thickness: 5px) {
     box-shadow: 0 0 $thickness $foto-black;
 }

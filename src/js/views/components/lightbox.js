@@ -1,5 +1,6 @@
 var fotoslack = fotoslack || {
     configs: {},
+    enums: {},
     models: {},
     utils: {},
     views: {
@@ -14,46 +15,63 @@ fotoslack.views.components.lightbox = (function() {
     'use strict';
 
     var Lightbox = function(options) {
-        var photoPreviewView = null;
+        var lightBoxContainer = null,
+            photoPreviewView = null;
 
         fotoslack.views.base.call(this, options);
         this.photoCollection = this.options.photoCollection || [];
         this.index = this.options.index || 0;
 
-        this.renderCloseButton = function () {
-            // TODO: implement this
+        this.navigateLeft = function () {
+            if (this.index >= 1) {
+                this.index--;
+                this.renderPhoto(this.index);
+            }
         };
 
-        this.renderControls = function () {
+        this.navigateRight = function () {
+            if (this.index < this.photoCollection.length - 1) {
+                this.index++;
+                this.renderPhoto(this.index);
+            }
+        };
+
+        this.renderCloseButton = function () {
             var buttonContainer = document.createElement('div'),
-                prevButtonEl = document.createElement('button'),
-                nextButtonEl = document.createElement('button');
+                closeButton = new fotoslack.views.components.button({
+                    title: 'x',
+                    classNames: ['close-button']
+                });
 
-            buttonContainer.classList.add('button-controls-container');
-            prevButtonEl.classList.add('left');
-            nextButtonEl.classList.add('right');
+            closeButton.render();
+            closeButton.addClickEvent(this.destroy.bind(this));
 
-            prevButtonEl.appendChild(document.createTextNode('←'));
-            nextButtonEl.appendChild(document.createTextNode('→'));
-
-            prevButtonEl.addEventListener('click', function () {
-                if (this.index >= 1) {
-                    this.index--;
-                    this.renderPhoto(this.index);
-                }
-            }.bind(this));
-
-            nextButtonEl.addEventListener('click', function () {
-                if (this.index < this.photoCollection.length - 1) {
-                    this.index++;
-                    this.renderPhoto(this.index);
-                }
-            }.bind(this));
-
-            buttonContainer.appendChild(prevButtonEl);
-            buttonContainer.appendChild(nextButtonEl);
-
+            buttonContainer.classList.add('text-right');
+            buttonContainer.appendChild(closeButton.el);
             this.el.appendChild(buttonContainer);
+        };
+
+        this.renderNavigationControls = function () {
+            var buttonContainer = document.createElement('div'),
+                prevButton = new fotoslack.views.components.button({
+                    title: '←',
+                    classNames: ['btn']
+                }),
+                nextButton = new fotoslack.views.components.button({
+                    title: 'Next',
+                    classNames: ['btn', 'btn-call-to-action']
+                });
+
+            prevButton.render();
+            nextButton.render();
+            prevButton.addClickEvent(this.navigateLeft.bind(this));
+            nextButton.addClickEvent(this.navigateRight.bind(this));
+
+            buttonContainer.classList.add('navigation-container', 'text-right');
+            buttonContainer.appendChild(prevButton.el);
+            buttonContainer.appendChild(nextButton.el);
+
+            lightBoxContainer.appendChild(buttonContainer);
         };
 
         this.renderPhotoPreview = function () {
@@ -62,7 +80,7 @@ fotoslack.views.components.lightbox = (function() {
                     model: this.photoCollection[this.index]
                 });
 
-                this.el.appendChild(photoPreviewView.render().el);
+                lightBoxContainer.appendChild(photoPreviewView.render().el);
             }
         };
 
@@ -74,12 +92,17 @@ fotoslack.views.components.lightbox = (function() {
         };
 
         this.renderLightbox = function () {
+            lightBoxContainer = document.createElement('div');
+            lightBoxContainer.classList.add('container');
+            lightBoxContainer.addEventListener('click', function (event) {
+                // Prevents click events on the lightbox from closing within the main area
+                event.stopPropagation();
+            });
+
             this.el.classList.add('lightbox');
-
-            this.renderCloseButton();
+            this.el.appendChild(lightBoxContainer);
+            this.renderNavigationControls();
             this.renderPhotoPreview();
-            this.renderControls();
-
             this.renderPhoto(this.index);
         };
     };
@@ -88,10 +111,34 @@ fotoslack.views.components.lightbox = (function() {
     Lightbox.constructor = Lightbox;
 
     Lightbox.prototype.constructView = function() {
+        this.renderCloseButton();
         this.renderLightbox();
+    };
+
+    Lightbox.prototype.postRender = function () {
+        // Allow to click anywhere to close the lightbox
+        this.addClickEvent(this.destroy.bind(this));
+        document.onkeydown = function (event) {
+            switch (event.keyCode) {
+                case fotoslack.enums.keyCodes.leftArrow:
+                    this.navigateLeft();
+                    break;
+                case fotoslack.enums.keyCodes.rightArrow:
+                    this.navigateRight();
+                    break;
+                case fotoslack.enums.keyCodes.escape:
+                    this.destroy();
+                    break;
+                default:
+                    break;
+            }
+        }.bind(this);
+    };
+
+    Lightbox.prototype.destroy = function () {
+        document.onkeydown = null;
+        fotoslack.views.base.prototype.destroy.call(this);
     };
 
     return Lightbox;
 }());
-
-

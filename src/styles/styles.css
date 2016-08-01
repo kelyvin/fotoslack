@@ -34,6 +34,64 @@ footer {
     color: gray; }
 
 /* Components */
+.btn {
+  font-size: 14px;
+  padding: 10px 14px;
+  border: 1px solid #3F464C;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  background: rgba(255, 246, 229, 0.8);
+  color: #3F464C;
+  cursor: pointer; }
+  .btn:hover {
+    background: #fff6e5; }
+  .btn.btn-call-to-action {
+    padding: 10px 25px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    background: rgba(126, 206, 252, 0.8);
+    color: #FFF6E5;
+    cursor: pointer; }
+    .btn.btn-call-to-action:hover {
+      background: #7ecefc; }
+
+.close-button {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 600;
+  border: none;
+  background: none;
+  color: #FFF6E5;
+  cursor: pointer;
+  padding: 0;
+  padding: 5px 10px;
+  font-size: 28px; }
+
+.lightbox {
+  position: fixed;
+  z-index: 1000;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgba(63, 70, 76, 0.98);
+  top: 0;
+  left: 0;
+  color: #FFF6E5;
+  overflow-y: auto; }
+  .lightbox .container {
+    max-width: 800px;
+    margin: auto;
+    padding: 2% 5%; }
+  .lightbox .close-button {
+    margin-right: 5px; }
+  .lightbox .navigation-container {
+    margin-top: 20px; }
+    .lightbox .navigation-container:after {
+      content: "";
+      display: block;
+      clear: both; }
+    .lightbox .navigation-container .btn {
+      margin-left: 5px; }
+
 .loader {
   text-align: center; }
 
@@ -43,9 +101,14 @@ footer {
   padding: 10px;
   vertical-align: middle; }
   .thumbnail img {
-    box-shadow: 0 0 3px #3F464C; }
+    box-shadow: 0 0 3px #3F464C;
+    opacity: .8; }
     .thumbnail img:hover {
-      box-shadow: 0 0 8px #3F464C; }
+      box-shadow: 0 0 8px #3F464C;
+      opacity: 1; }
+
+.photo-preview img {
+  width: 100%; }
 
 /* Pages */
 .photo-viewer {
@@ -55,8 +118,30 @@ body {
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400; }
+  body h1 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 200; }
+  body h5 {
+    margin-top: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300; }
 
 .container {
   padding: 20px; }
+
+.text-right {
+  text-align: right; }
+
+.text-center {
+  text-align: center; }
+
+.text-left {
+  text-align: left; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
 
 /*# sourceMappingURL=styles.css.map */

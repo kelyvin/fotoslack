@@ -1,5 +1,6 @@
 var fotoslack = fotoslack || {
     configs: {},
+    enums: {},
     models: {},
     utils: {},
     views: {
@@ -19,7 +20,7 @@ fotoslack.models.flickrPhoto = (function() {
         this.defaults = {
             id: '',
             description: '',
-            ownername: '',
+            ownerName: '',
             title: '',
             images: {
                 square: {
@@ -51,7 +52,7 @@ fotoslack.models.flickrPhoto = (function() {
             model = {
                 id: photo.id,
                 description: photo.description._content,
-                ownername: photo.ownername,
+                ownerName: photo.ownername,
                 title: photo.title,
                 images: {
                     square: {

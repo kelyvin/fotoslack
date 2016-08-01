@@ -12,13 +12,12 @@ var fotoslack = fotoslack || {
 };
 
 // Move keys away from source code when a proper backend has been implemented
-fotoslack.configs.default = (function() {
+fotoslack.enums.keyCodes = (function() {
     'use strict';
 
     return {
-        flickrGalleryId: '72157662859243450'
+        escape: 27,
+        leftArrow: 37,
+        rightArrow: 39
     };
 }());
-
-
-

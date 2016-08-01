@@ -1,5 +1,6 @@
 var fotoslack = fotoslack || {
     configs: {},
+    enums: {},
     models: {},
     utils: {},
     views: {
@@ -15,19 +16,34 @@ fotoslack.views.components.photo.preview = (function() {
 
     var PhotoPreview = function(options) {
         var photoEl = null,
-            titleEl = null;
+            titleEl = null,
+            footerEl = null;
 
         fotoslack.views.base.call(this, options);
         this.model = this.options.model || new fotoslack.models.flickrPhoto();
 
-        function createPhoto (imageUrl) {
-            photoEl = document.createElement('img');
-            photoEl.setAttribute('src', imageUrl);
+        function createPhoto(images) {
+            var imageEl = document.createElement('img'),
+                imageUrl = images.medium.url || images.large.url || images.square.url || '',
+                largeImageUrl = images.large.url || imageUrl;
+
+            imageEl.setAttribute('src', imageUrl);
+            photoEl = document.createElement('a');
+            photoEl.setAttribute('href', largeImageUrl);
+            photoEl.setAttribute('target', '_blank');
+            photoEl.appendChild(imageEl);
         }
 
         function createTitle(title) {
             titleEl = document.createElement('h1');
-            titleEl.appendChild(document.createTextNode(title));
+            titleEl.classList.add('text-left');
+            titleEl.appendChild(document.createTextNode('"' + title + '"'));
+        }
+
+        function createFooter(text) {
+            footerEl = document.createElement('h5');
+            footerEl.classList.add('text-right');
+            footerEl.appendChild(document.createTextNode(text));
         }
 
         this.renderPhoto = function (model) {
@@ -41,16 +57,23 @@ fotoslack.views.components.photo.preview = (function() {
                 titleEl = null;
             }
 
-            if (model) {
-                var title = model.get('title'),
-                    images = model.get('images'),
-                    imageUrl = images.medium.url || images.large.url || images.square.url || '';
+            if (footerEl) {
+                this.el.removeChild(footerEl);
+                footerEl = null;
+            }
 
-                createPhoto(imageUrl);
+            if (model) {
+                var title = model.get('title') || 'Untitled',
+                    owner = model.get('ownerName') || '',
+                    images = model.get('images');
+
+                createPhoto(images);
                 createTitle(title);
+                createFooter(owner);
 
                 this.el.appendChild(titleEl);
                 this.el.appendChild(photoEl);
+                this.el.appendChild(footerEl);
             }
         };
     };
