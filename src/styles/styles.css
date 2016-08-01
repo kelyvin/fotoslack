@@ -6,7 +6,7 @@
 /* Layouts */
 .nav-bar {
   width: 100%;
-  background-color: #FF7F66;
+  background-color: #2186C4;
   height: 50px;
   color: white;
   font-size: 22px;
@@ -49,11 +49,11 @@ footer {
     padding: 10px 25px;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
-    background: rgba(126, 206, 252, 0.8);
+    background: rgba(255, 127, 102, 0.8);
     color: #FFF6E5;
     cursor: pointer; }
     .btn.btn-call-to-action:hover {
-      background: #7ecefc; }
+      background: #ff7f66; }
 
 .close-button {
   font-family: 'Source Sans Pro', sans-serif;
@@ -116,6 +116,7 @@ footer {
 
 body {
   margin: 0;
+  background-color: #FFF6E5;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400; }
   body h1 {

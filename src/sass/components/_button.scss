@@ -6,7 +6,7 @@
 
     &.btn-call-to-action {
         padding: 10px 25px;
-        @include button($foto-ice, $foto-white);
+        @include button($foto-red, $foto-white);
     }
 }
 
