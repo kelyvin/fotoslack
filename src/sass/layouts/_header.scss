@@ -3,7 +3,7 @@
     background-color: $foto-blue;
     height: $nav-height;
     color: white;
-    font-size: 22px;
+    font-size: $font-large;
     @include shadow();
     @include source-sans-pro(200);
 

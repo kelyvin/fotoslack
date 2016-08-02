@@ -7,4 +7,13 @@ $foto-black: #3F464C;
 
 /* Fixed Settings */
 $nav-height: 50px;
-$max-container-width: 800px;
+$phone-width: 30em;
+$lightbox-container-width: 800px;
+
+/* Font sizing */
+$unit: 1em;
+$font-default: $unit;
+$font-xlarge: $font-default * 2;
+$font-large: $font-default * 1.25;
+$font-small: $font-default * 0.85;
+$font-xsmall: $font-default * 0.8;

@@ -1,5 +1,5 @@
 .btn {
-    font-size: 14px;
+    font-size: $font-small;
     padding: 10px 14px;
     border: 1px solid $foto-black;
     @include button($foto-white, $foto-black);
@@ -13,5 +13,5 @@
 .close-button {
     @include icon-button();
     padding: 5px 10px;
-    font-size: 28px;
+    font-size: $font-xlarge;
 }

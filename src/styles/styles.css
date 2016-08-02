@@ -1,6 +1,7 @@
 /* Utils */
 /* Color Palette */
 /* Fixed Settings */
+/* Font sizing */
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600);
 /* Font mixins*/
 /* Layouts */
@@ -9,7 +10,7 @@
   background-color: #2186C4;
   height: 50px;
   color: white;
-  font-size: 22px;
+  font-size: 1.25em;
   box-shadow: 0 0 5px #3F464C;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 200; }
@@ -35,7 +36,7 @@ footer {
 
 /* Components */
 .btn {
-  font-size: 14px;
+  font-size: 0.85em;
   padding: 10px 14px;
   border: 1px solid #3F464C;
   font-family: 'Source Sans Pro', sans-serif;
@@ -64,7 +65,7 @@ footer {
   cursor: pointer;
   padding: 0;
   padding: 5px 10px;
-  font-size: 28px; }
+  font-size: 2em; }
 
 .lightbox {
   position: fixed;
@@ -79,8 +80,12 @@ footer {
   overflow-y: auto; }
   .lightbox .container {
     max-width: 800px;
-    margin: auto;
-    padding: 2% 5%; }
+    margin: 20px auto;
+    padding: 2% 5%;
+    border: 2px solid #FFF6E5; }
+    @media only screen and (max-device-width: 30em) {
+      .lightbox .container {
+        margin: 10px 5%; } }
   .lightbox .close-button {
     margin-right: 5px; }
   .lightbox .navigation-container {
@@ -126,6 +131,11 @@ body {
     margin-top: 0;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300; }
+  @media only screen and (max-device-width: 30em) {
+    body h1 {
+      font-size: 1.25em; }
+    body h5 {
+      font-size: 0.8em; } }
 
 .container {
   padding: 20px; }

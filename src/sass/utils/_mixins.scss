@@ -29,3 +29,9 @@
 @mixin shadow($thickness: 5px) {
     box-shadow: 0 0 $thickness $foto-black;
 }
+
+@mixin phone {
+    @media only screen and (max-device-width: $phone-width) {
+        @content;
+    }
+}

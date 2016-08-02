@@ -30,6 +30,16 @@ body {
         margin-top: 0;
         @include source-sans-pro(300);
     }
+
+    @include phone {
+        h1 {
+            font-size: $font-large;
+        }
+
+        h5 {
+            font-size: $font-xsmall;
+        }
+    }
 }
 
 .container {

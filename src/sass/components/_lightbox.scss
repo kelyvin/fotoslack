@@ -11,9 +11,14 @@
     overflow-y: auto;
 
     .container {
-        max-width: $max-container-width;
-        margin: auto;
+        max-width: $lightbox-container-width;
+        margin: 20px auto;
         padding: 2% 5%;
+        border: 2px solid $foto-white;
+
+        @include phone {
+            margin: 10px 5%;
+        }
     }
 
     .close-button {
